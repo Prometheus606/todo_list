@@ -1,0 +1,31 @@
+<%- include("./partials/header.ejs") %>
+
+<body>
+    <Header>
+        <h1>Deine Todo Liste</h1>
+    </Header>
+
+    <main>
+        <div class="container">
+            <div class="list-container">
+                <ul class="list">
+                    <% items.forEach(item => { %>
+                        <li id="<%= item.id %>"> 
+                            <button class="remove-btn" id="<%= item.id %>"></button> 
+                            <span class="list-item" id="<%= item.id %>"> <%= item.title %>  </span></li>
+                    <% }) %>
+                </ul>
+            <% if (items.length == 0) { %>
+                <p id="first-text">Deine Liste ist leer. Erstelle ein paar Todo's!</p>
+            <% } %>
+            </div>
+            <button class="create"></button>
+        </div>
+        
+    </main>
+
+    <script src="./js/script.js"></script>
+</body>
+
+<%- include("./partials/footer.ejs") %>
+
